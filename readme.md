@@ -11,8 +11,8 @@ sudo apt install curl tar wget tmux htop net-tools clang  libssl-dev jq micro bu
 # Go
 ```
 cd
-wget https://go.dev/dl/go1.19.1.linux-amd64.tar.gz
-sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.19.1.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.20.2.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.20.2.linux-amd64.tar.gz
 export PATH=$PATH:/usr/local/go/bin
 echo 'export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin' >> $HOME/.bash_profile
 ```
@@ -33,10 +33,10 @@ source "$HOME/.cargo/env"
 ``` 
 # Lighthouse
 ```
-git clone https://github.com/sigp/lighthouse.git
-cd lighthouse
-git checkout stable
-make
+wget https://github.com/sigp/lighthouse/releases/v.4.0.1/lighthouse-v4.0.1-x86_64-unknown-linux-gnu-portable.tar.gz
+tar -xvf lighthouse-v4.0.1-x86-unknown-linux-gnu-portable.tar.gz
+sudo cp lighthouse /usr/local/bin
+lighthouse --version
 ```
 ## İsim ve cüzdan adresinizi bash_profile kaydedin
 > ### Cüzdan adresi için metamasktan yeni bir cüzdan oluşturabilirsiniz
@@ -54,6 +54,7 @@ git clone https://github.com/gitshock-labs/testnet-list
 > ### Komutları tek tek girin.
 ```
 cd testnet-list
+git checkout master
 mkdir beacon-1
 mkdir beacon-2 
 mkdir validator
@@ -91,7 +92,6 @@ sudo python3 setup.py install
 > 
 # JWT Secret oluşturun
 ```
-cd ..
 openssl rand -hex 32 | tr -d "\n" > "jwt.hex"
 ```
 # İnitalize
